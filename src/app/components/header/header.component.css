@@ -1,0 +1,23 @@
+.toolbar{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-one {
+    flex: 0;
+
+}
+
+.flex-two {
+    flex: 0;
+    padding-right: 700px;
+
+}
+
+.flex-three {
+    padding-top: 10px;
+    float: 0;
+    padding-right: 50px;
+}

@@ -1,0 +1,26 @@
+.note-card {
+    width: 200px;
+    margin: 15px;
+    border-radius: 5%;
+}
+
+.full-width {
+    width: 100%;
+    height: auto;
+  }
+
+.mat-toolbar{
+    height: 35px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon {
+    cursor: pointer;
+    padding-top: 0%;
+    padding-left: 60%;
+  }
+
+.mat-menu{
+    padding-left: 50%;
+}

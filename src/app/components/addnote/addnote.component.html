@@ -1,0 +1,40 @@
+<!-- On clickOutside (ClickOutsideModule is imported in the app.module.ts file), saveNote($event) will be active -->
+<mat-card (clickOutside)="saveNote($event)" class="take-note-container">
+
+    <!-- clickOutside will initiat *ngFor loop to display Images in Note object. -->
+    <div class="row">
+        <div class="col full-width" *ngFor="let imgSrc of note.images">
+            <img [src]="imgSrc" class="full-width" />
+        </div>
+    </div>
+
+    <!-- clickOutside will initiat *ngFor loop to display canvasImage in Note object. -->
+    <div class="row">
+        <div class="col full-width" *ngFor="let canvasImgSrc of note.canvasImages">
+            <img [src]="canvasImgSrc" class="full-width" />
+        </div>
+    </div>
+
+    <mat-card-content>
+        <!-- This is event binding with in the div -->
+        <div class="take-note-input" (input)="note.title = $event.target.innerText" contenteditable="true"
+            placeholder="Title" *ngIf="startEditing === true">
+        </div>
+        <div class="take-note-input" (input)="note.description = $event.target.innerText" (click)="startNoteAdding()"
+            contenteditable="true" placeholder="Take a note ...">
+        </div>
+    </mat-card-content>
+
+    <mat-toolbar class="addnote-toolbar" align="right">
+        <mat-card-actions class="note-action">
+            <label mat-icon-button>
+                <mat-icon aria-hidden="false" class="icon" aria-label="Inser photo">insert_photo</mat-icon>
+                <!-- For uploading multiple images: type file,image. Please refere MDN document-->
+                <input type="file" multiple accept="image/*" class="hide" name="upload-file" (change)="readUrl($event)">
+            </label>
+            <!-- clicking on edit icon will open the openCanvas() method from its component -->
+            <mat-icon class="icon" (click)="openCanvas()">edit</mat-icon>
+        </mat-card-actions>
+    </mat-toolbar>
+
+</mat-card>

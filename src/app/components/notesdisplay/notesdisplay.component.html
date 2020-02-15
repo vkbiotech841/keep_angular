@@ -1,0 +1,9 @@
+<div class="example-boundary">
+    <!-- NoteDisplay is the parent component for the notes array -->
+    <!-- Since, addNote stores Note object to the noteService.notes array, so in order to display note in the note display area, we need to use noteService to display note  -->
+    <!-- index of each note is set a i (check note component ts file) that binds with currentNoteIndex property, it is used as @Input in the note component. -->
+    <!-- Note has been used similar to the index. -->
+    <div class="notes-container">
+        <app-note *ngFor="let note of noteService.notes; index as i" [currentNoteIndex]="i" [note]="note"></app-note>
+    </div>
+</div>

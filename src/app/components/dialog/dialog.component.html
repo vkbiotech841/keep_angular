@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col full-width" *ngFor="let imgSrc of data.images; index as i">
+        <img [src]="imgSrc" class="full-width" />
+        <mat-icon (click)="deleteImage(i)">delete</mat-icon>
+        <mat-icon (click)="editImageAsCanvas(i)">edit</mat-icon>
+    </div>
+    <div class="col full-width" *ngFor="let canvasImgSrc of data.canvasImages; index as i">
+        <img [src]="canvasImgSrc" class="full-width" />
+        <mat-icon (click)="deleteCanvasImage(i)">delete_sweep</mat-icon>
+        <mat-icon (click)="editCanvasImage(i)">edit</mat-icon>
+    </div>
+</div>
+
+<h2>
+    <input type="text" [(ngModel)]="data.title" placeholder="Title" mat-dialog-title>
+</h2>
+
+<h3>
+    <input type="text" [(ngModel)]="data.description" placeholder="Take a note ...">
+</h3>
+
+<mat-toolbar>
+    <label mat-icon-button>
+        <mat-icon aria-hidden="false" class="icon" aria-label="Inser photo">insert_photo</mat-icon>
+        <!-- For uploading image: type file,image-->
+        <input type="file" multiple accept="image/*" class="hide" name="upload-file" (change)="readUrl($event)">
+    </label>
+</mat-toolbar>

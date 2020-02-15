@@ -1,0 +1,48 @@
+<!-- Content to be displayed in the note card -->
+<mat-card class="note-card">
+    <!-- Event binding for displaying Note detaisl on click -->
+    <!-- clicking of the Note object will trigger displayNoteDetail method in its ts -->
+    <div class="row" (click)="displayNoteDetails()">
+        <div class="col full-width" *ngFor="let imgSrc of note.images">
+            <img [src]="imgSrc" class="full-width" />
+        </div>
+    </div>
+    <div class="row" (click)="displayNoteDetails()">
+        <div class="col full-width" *ngFor="let canvasImgSrc of note.canvasImages">
+            <img [src]="canvasImgSrc" class="full-width" />
+        </div>
+    </div>
+
+    <mat-card-content (click)="displayNoteDetails()">
+        <mat-card-title>{{note.title}}</mat-card-title>
+        <p>{{ note.description }}</p>
+    </mat-card-content>
+
+    <!-- Mat-card menu -->
+    <mat-card-actions align="right">
+        <mat-toolbar class="mat-toolbar">
+            <!-- on click on the insert photo icon, a change event trigger and readUrl hander that event -->
+            <label mat-icon-button>
+                <mat-icon aria-hidden="false" class="insert" aria-label="Inser photo">insert_photo</mat-icon>
+                <!-- For uploading multiple images: type file,image. Please refere MDN document-->
+                <input type="file" multiple accept="image/*" class="hide" name="upload-file" (change)="readUrl($event)">
+                <!-- clicking on edit icon will open the openCanvas() method from its component -->
+            </label>
+
+            <mat-icon (click)="openCanvas()">edit</mat-icon>
+
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="btn btn-danger">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="noteService.deleteNote(currentNoteIndex)">
+                    <span>
+                        <mat-icon>delete</mat-icon>
+                        <span>Delete</span>
+                    </span>
+                </button>
+            </mat-menu>
+
+        </mat-toolbar>
+    </mat-card-actions>
+</mat-card>

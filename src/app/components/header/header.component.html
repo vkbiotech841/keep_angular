@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="toolbar">
+    <div class="flex-one">
+        <!-- calling event binding on using sidenavServe.sideNavToggle method -->
+        <mat-icon (click)="sidenavService.sideNavToggle(drawer)">menu</mat-icon>
+    </div>
+
+    <div class="flex-two">
+        <h2>BansiBanjao Keep</h2>
+    </div>
+    <!-- Search bar -->
+    <div class="flex-three">
+        <mat-form-field class="search-bar">
+            <input matInput type="search" placeholder="Search">
+            <mat-icon>search</mat-icon>
+        </mat-form-field>
+    </div>
+    <!-- Menu on Top toolbar header -->
+    <div class="flex-four">
+        <button mat-button [matMenuTriggerFor]="menu" class="my-account">My account</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>account_box</mat-icon>
+                Profile
+            </button>
+            <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                Settings
+            </button>
+            <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+            </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>

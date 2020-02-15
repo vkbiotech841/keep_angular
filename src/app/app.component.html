@@ -1,0 +1,19 @@
+<!-- Header component -->
+<app-header></app-header>
+
+<!-- Angular Material sidenav bar container -->
+<mat-drawer-container class="drawer-container">
+  <!-- sidenav bar -->
+  <!-- #drawer reference value was given. Using with we can toggle the sidebar -->
+  <mat-drawer #drawer mode="side" opened>
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <!-- Dashboard content -->
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+
+</mat-drawer-container>
+
+<!-- Footer component -->
+<app-footer></app-footer>

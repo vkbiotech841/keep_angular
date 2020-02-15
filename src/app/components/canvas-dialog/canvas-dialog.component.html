@@ -1,0 +1,8 @@
+<h1 mat-dialog-title> Draw any thing</h1>
+<div mat-dialog-content>
+    <canvas #canvas id="canv" class="canvas-structure"></canvas>
+</div>
+<div mat-dialog-actions align="center">
+    <button mat-button (click)="cancelCanvas()"> Cancel </button>
+    <button mat-button (click)="saveCanvas()"> Save</button>
+</div>
