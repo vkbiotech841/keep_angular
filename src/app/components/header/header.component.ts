@@ -9,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public sidenavService: SidenavService) { }
+  constructor(
+    public sidenavService: SidenavService
+  ) { }
 
   ngOnInit() {
   }
