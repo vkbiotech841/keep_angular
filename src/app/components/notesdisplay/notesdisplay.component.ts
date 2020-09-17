@@ -11,9 +11,12 @@ import { Component } from '@angular/core';
 export class NotesdisplayComponent {
 
   // Here, we want to use NoteService because it method store the notes array.
-  // making instantance of NoteService class as noteService because class can not be used as such. It can only used afte making its instance. 
-  constructor(public noteService: NoteService,
-    public dialogService: DialogService) { }
+  // making instantance of NoteService class as noteService because class can not be used as such. 
+  // It can only used afte making its instance. 
+  constructor(
+    public noteService: NoteService,
+    public dialogService: DialogService
+  ) { }
 
 
 }

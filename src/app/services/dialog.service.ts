@@ -8,6 +8,7 @@ export interface Dialog {
 @Injectable({
   providedIn: 'root'
 })
+
 export class DialogService {
 
   dialogs: Dialog[] = [];
@@ -18,4 +19,6 @@ export class DialogService {
     this.dialogs.indexOf(index);
     console.log(this.dialogs);
   };
+
+
 }

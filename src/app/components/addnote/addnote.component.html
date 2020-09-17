@@ -17,15 +17,15 @@
 
     <mat-card-content>
         <!-- This is event binding with in the div -->
-        <div class="take-note-input" (input)="note.title = $event.target.innerText" contenteditable="true"
-            placeholder="Title" *ngIf="startEditing === true">
+        <div class="take-note-input" id="noteTitle" (input)="note.title = $event.target.innerText"
+            contenteditable="true" placeholder="Write your Note Title here ...">
         </div>
-        <div class="take-note-input" (input)="note.description = $event.target.innerText" (click)="startNoteAdding()"
-            contenteditable="true" placeholder="Take a note ...">
+        <div class="take-note-input" id="noteDescription" (input)="note.description = $event.target.innerText"
+            (click)="startNoteAdding()" contenteditable="true" placeholder="Take a note ...">
         </div>
     </mat-card-content>
 
-    <mat-toolbar class="addnote-toolbar" align="right">
+    <mat-toolbar class="addnote-toolbar">
         <mat-card-actions class="note-action">
             <label mat-icon-button>
                 <mat-icon aria-hidden="false" class="icon" aria-label="Inser photo">insert_photo</mat-icon>

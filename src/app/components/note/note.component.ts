@@ -21,11 +21,13 @@ export class NoteComponent {
   isCanvasEditing = false;
   dialogRef: any;
 
-  constructor(public dialog: MatDialog,
-    public noteService: NoteService) { }
+  constructor(
+    public dialog: MatDialog,
+    public noteService: NoteService
+  ) { }
 
 
-
+  // FILE UPLOAD OR IMAGE UPLOAD:
   // Loading multiple images to images array in note object.
   // readUrl is an event handler for change event in it template (HTML).
   // Uploaded images are push to the note.images array.
@@ -40,7 +42,7 @@ export class NoteComponent {
         reader.readAsDataURL(file);
       }
     }
-  }
+  };
 
   // on click of the Note object, displayNoteDetails will display on the dialog.
   // Since, dialog with open from note component,logic is written here.
@@ -52,7 +54,7 @@ export class NoteComponent {
       data: this.note     // When dialog is opening, data is transfer as data not as note.
     });
     console.log(this.dialogRef);
-  }
+  };
 
 
   // Opening canvas from the note object.
@@ -60,7 +62,6 @@ export class NoteComponent {
     this.isCanvasEditing = true;
     const dialogRef = this.dialog.open(CanvasDialogComponent, {
     });
-
     dialogRef.afterClosed().subscribe(result => {    // while closing dialog, subscribing result
       if (result) {
         if (!this.note.canvasImages) {       // if result is not a canvasImages
@@ -70,7 +71,9 @@ export class NoteComponent {
       }
       this.isCanvasEditing = false;
     });
-  }
+  };
+
+
 }
 
 

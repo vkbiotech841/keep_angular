@@ -15,15 +15,18 @@ export class AddnoteComponent {
   note: Note = {};
   isCanvasEditing = false;
 
-  constructor(public noteService: NoteService, public dialog: MatDialog) { }
+  constructor(
+    public noteService: NoteService,
+    public dialog: MatDialog
+  ) { }
 
   // Function to be used in component HTML.
   startNoteAdding() {
     this.startEditing = true;
-  }
+  };
 
   // Method for adding title, description, images and canvasImages to the note.
-  saveNote() {
+  saveNote($event) {
     if (this.isCanvasEditing == true) {
       return;
     }
@@ -31,11 +34,14 @@ export class AddnoteComponent {
     if (this.note.title || this.note.description || this.note.images || this.note.canvasImages) {
       this.noteService.addNote(this.note);
       this.note = {};
+      (document.getElementById("noteTitle") as HTMLInputElement).innerText = "";
+      (document.getElementById("noteDescription") as HTMLInputElement).innerText = "";
     }
-  }
+  };
 
 
-  // Loading multiple images to images array in note array
+
+  // Loading multiple images to images array in a note array
   readUrl(event: any) {    // this taken an event
     this.note.images = [];  // setting note images array as empty 
     let files = event.target.files;  // storing images or target to the files.
@@ -48,7 +54,7 @@ export class AddnoteComponent {
         reader.readAsDataURL(file); // Images are saved as DataURL.
       }
     }
-  }
+  };
 
   // Opening method for CanvasDialogComponent as an entry component:Material dialog
   // clicking on edit icon on its view,openCanvas method, which further follows CanvasDialogComponent(dynamic) function, where save button saves canvasImages to the Note.canvasImages array.
@@ -67,5 +73,7 @@ export class AddnoteComponent {
       }
       this.isCanvasEditing = false;
     });
-  }
+  };
+
+
 }

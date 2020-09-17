@@ -40,8 +40,6 @@ import { CanvasDialogComponent } from './components/canvas-dialog/canvas-dialog.
     CanvasDialogComponent,
   ],
 
-
-
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -52,7 +50,6 @@ import { CanvasDialogComponent } from './components/canvas-dialog/canvas-dialog.
     HttpClientModule,
     FormsModule,
     NgbModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
